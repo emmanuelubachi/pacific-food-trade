@@ -2,7 +2,7 @@
   "name": "feeding-the-pacific",
   "version": "0.1.0",
   "author": "Emmanuel Ubachi",
-  "homepage": "ubachi.com/feeding-the-pacific/",
+  "homepage": "ubachi.com/feeding-the-pacific",
   "private": true,
   "scripts": {
     "dev": "next dev",
