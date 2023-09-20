@@ -1,11 +1,11 @@
 "use client";
 import React from "react";
-import * as echarts from "echarts";
+import * as echarts from "echarts/core";
 import VintageTheme from "/public/vintage.project.json";
 import ReactECharts from "echarts-for-react"; // or var ReactECharts = require('echarts-for-react');
 
 export default function SimpleBarchart() {
-  echarts.registerTheme("vintage", VintageTheme.theme);
+  //echarts.registerTheme("vintage", VintageTheme.theme);
   echarts.registerTheme("mytheme", {
     color: "#919e8b",
   });
@@ -29,7 +29,7 @@ export default function SimpleBarchart() {
       <ReactECharts
         option={option}
         style={{ height: 400 }}
-        theme={"vintage"}
+        theme={"mytheme"}
         opts={{ renderer: "svg" }}
       />
     </>
