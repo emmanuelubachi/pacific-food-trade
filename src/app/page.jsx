@@ -1,5 +1,6 @@
-import SimpleBarchart from "@/components/SimpleBarchart";
 import React from "react";
+import SimpleBarchart from "@/components/SimpleBarchart";
+import Treemap from "@/components/Treemap";
 
 const FeedingThePacific = () => {
   return (
@@ -72,7 +73,7 @@ const FeedingThePacific = () => {
               className="gap-8 items-center
               justify-center
             mx-auto 
-            md:grid md:grid-cols-2
+            md:grid md:grid-cols-1
             xl:gap-16"
             >
               <div>
@@ -90,7 +91,7 @@ const FeedingThePacific = () => {
                 </p>
               </div>
               <div className=" ">
-                <SimpleBarchart />
+                <Treemap />
               </div>
             </div>
           </div>
