@@ -18,9 +18,21 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 
-export function ComboboxDemo({ options, defaultValue, defaultLabel }) {
-  const [open, setOpen] = React.useState(false);
-  const [value, setValue] = React.useState(defaultValue || "");
+export function ComboboxDemo({
+  options,
+  defaultLabel,
+  handleSelectValue,
+  setOpen,
+  value,
+  open,
+}) {
+  // const [open, setOpen] = React.useState(false);
+  // const [value, setValue] = React.useState(defaultValue || "");
+
+  // const handleSelectValue = (currentValue) => {
+  //   setValue(currentValue === value ? "" : currentValue);
+  //   setOpen(false);
+  // };
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -39,16 +51,13 @@ export function ComboboxDemo({ options, defaultValue, defaultLabel }) {
       </PopoverTrigger>
       <PopoverContent className="w-[200px] p-0 border-white/20 bg-white/60">
         <Command className="bg-white/40">
-          <CommandInput placeholder="Search option..." className="h-9" />
+          {/* <CommandInput placeholder="Search option..." className="h-9" /> */}
           <CommandEmpty>No option found.</CommandEmpty>
           <CommandGroup>
             {options.map((option) => (
               <CommandItem
                 key={option.value}
-                onSelect={(currentValue) => {
-                  setValue(currentValue === value ? "" : currentValue);
-                  setOpen(false);
-                }}
+                onSelect={() => handleSelectValue(option.value)}
               >
                 {option.label}
                 <CheckIcon
