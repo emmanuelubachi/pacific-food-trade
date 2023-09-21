@@ -9,7 +9,7 @@ const CountryPage = ({ params }) => {
 
   return (
     <main>
-      <TopFoods data={data} />
+      <TopFoods data={data[0]} />
     </main>
   );
 };

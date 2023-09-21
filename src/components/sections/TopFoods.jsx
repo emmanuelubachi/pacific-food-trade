@@ -33,8 +33,8 @@ const TopFoods = ({ data }) => {
     setOpen(false);
   };
 
-  const foodData = data[0];
-  console.log(value);
+  const foodData = data;
+  //console.log(value);
 
   const Year = [
     {
