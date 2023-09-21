@@ -2,9 +2,9 @@
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import { CaretSortIcon, CheckIcon } from "@radix-ui/react-icons";
+import CountryData from "@/data/pacific_country.json";
+import { CaretSortIcon } from "@radix-ui/react-icons";
 
-import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import {
   Command,
@@ -18,6 +18,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 const countries = [
   {
@@ -47,7 +48,7 @@ export default function CountrySelector() {
   const [value, setValue] = useState("");
   const router = useRouter(); // Get the router instance
 
-  const handleSelectFramework = (currentValue) => {
+  const handleSelectValue = (currentValue) => {
     setValue(currentValue === value ? "" : currentValue);
     setOpen(false);
 
@@ -64,46 +65,43 @@ export default function CountrySelector() {
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="w-full py-10 justify-between
+          className="w-[700px] py-8 justify-between
           lg:max-w-xl lg:text-xl
           md:max-w-md md:text-lg
           sm:max-w-sm sm:text-md
           max-w-xs text-sm font-light
         text-stone-800 
           bg-transparent hover:bg-white/20
-          border-0 border-b-2 border-gray-300 appearance-none 
+          border-0 border-b-2 
          "
         >
           {value
-            ? countries.find((framework) => framework.value === value)?.label
+            ? CountryData.find((countries) => countries.iso3 === value)?.country
             : "Select a Country or Territory..."}
           <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
       <PopoverContent
-        className="w-full max-w-xl p-0 bg-white/20
-        lg:max-w-xl lg:text-xl
-        md:max-w-md md:text-lg
-        sm:max-w-sm sm:text-md"
+        className="w-[700px] p-0 bg-white/20
+      lg:max-w-xl lg:text-xl
+      md:max-w-md md:text-lg
+      sm:max-w-sm sm:text-md
+      max-w-xs"
       >
         <Command>
           <CommandInput placeholder="Search framework..." className="h-9" />
           <CommandEmpty>No framework found.</CommandEmpty>
           <CommandGroup>
-            {countries.map((framework) => (
-              <CommandItem
-                key={framework.value}
-                onSelect={() => handleSelectFramework(framework.value)}
-              >
-                {framework.label}
-                {/* <CheckIcon
-                  className={cn(
-                    "ml-auto h-4 w-4",
-                    value === framework.value ? "opacity-100" : "opacity-0"
-                  )}
-                /> */}
-              </CommandItem>
-            ))}
+            <ScrollArea className="h-72 rounded-md">
+              {CountryData.map((countries) => (
+                <CommandItem
+                  key={countries.id}
+                  onSelect={() => handleSelectValue(countries.iso3)}
+                >
+                  {countries.country}
+                </CommandItem>
+              ))}
+            </ScrollArea>
           </CommandGroup>
         </Command>
       </PopoverContent>
