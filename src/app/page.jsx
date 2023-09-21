@@ -1,6 +1,4 @@
 import React from "react";
-import SimpleBarchart from "@/components/charts/SimpleBarchart";
-import TopFoods from "@/components/sections/TopFoods";
 import CountrySelector from "./components/CountrySelector";
 
 const FeedingThePacific = () => {
