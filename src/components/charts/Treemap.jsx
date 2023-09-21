@@ -3,9 +3,8 @@ import React from "react";
 import * as echarts from "echarts/core";
 import ReactEcharts from "echarts-for-react";
 import VintageTheme from "/public/vintage.project.json";
-import Data from "../data/food_trade.json";
 
-function Treemap() {
+function Treemap({ Data }) {
   echarts.registerTheme("vintage", VintageTheme.theme);
 
   const option = {
