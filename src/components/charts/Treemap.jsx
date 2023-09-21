@@ -4,14 +4,14 @@ import * as echarts from "echarts/core";
 import ReactEcharts from "echarts-for-react";
 import VintageTheme from "/public/vintage.project.json";
 
-function Treemap({ Data }) {
+function Treemap({ data }) {
   echarts.registerTheme("vintage", VintageTheme.theme);
 
   const option = {
     series: [
       {
         type: "treemap",
-        data: Data.Data,
+        data: data,
         width: "100%",
         height: "90%",
         roam: false,
@@ -19,15 +19,12 @@ function Treemap({ Data }) {
     ],
   };
   return (
-    <>
-      <ReactEcharts
-        option={option}
-        style={{ height: 700 }}
-        theme={"vintage"}
-        opts={{ renderer: "svg" }}
-      />
-      {/* {JSON.stringify(Data.Data)} */}
-    </>
+    <ReactEcharts
+      option={option}
+      style={{ height: 700 }}
+      theme={"vintage"}
+      opts={{ renderer: "svg" }}
+    />
   );
 }
 
