@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import Treemap from "@/components/charts/Treemap";
 import { ComboboxDemo } from "@/components/ui/Combobox";
-import Data from "@/data/food_trade.json";
 
 import { CaretSortIcon, CheckIcon } from "@radix-ui/react-icons";
 
@@ -22,30 +21,37 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 
-const TopFoods = () => {
+const TopFoods = ({ data }) => {
   const [open, setOpen] = useState(false);
-  const [tradeflow, setTradeflow] = useState("export" || "");
+  const [value, setValue] = useState("2018" || "");
+
+  // const [tradeflow, setTradeflow] = useState("export" || "");
+  // const [open, setOpen] = React.useState(false);
+
+  const handleSelectValue = (currentValue) => {
+    setValue(currentValue === value ? "" : currentValue);
+    setOpen(false);
+  };
+
+  const foodData = data[0];
+  console.log(value);
 
   const Year = [
     {
-      value: "2014",
-      label: "2014",
-    },
-    {
-      value: "2015",
-      label: "2015",
-    },
-    {
-      value: "2016",
-      label: "2016",
+      value: "2018",
+      label: "2018",
     },
     {
       value: "2017",
       label: "2017",
     },
     {
-      value: "2018",
-      label: "2018",
+      value: "2016",
+      label: "2016",
+    },
+    {
+      value: "2015",
+      label: "2015",
     },
   ];
 
@@ -61,7 +67,7 @@ const TopFoods = () => {
   ];
 
   return (
-    <section className="bg-gradient-to-br from-orange-100 to-orange-50 pb-24">
+    <section className="bg-gradient-to-br from-orange-50 to-white py-24">
       <div className="m-auto max-w-screen-xl pt-4 px-4">
         <h2
           className="mb-8 
@@ -96,7 +102,7 @@ const TopFoods = () => {
 
           <div className=" ">
             <div className="flex gap-2 justify-end">
-              <Popover open={open} onOpenChange={setOpen}>
+              {/* <Popover open={open} onOpenChange={setOpen}>
                 <PopoverTrigger asChild>
                   <Button
                     variant="outline"
@@ -113,10 +119,6 @@ const TopFoods = () => {
                 </PopoverTrigger>
                 <PopoverContent className="w-[200px] p-0 border-white/20 bg-stone-50">
                   <Command className="bg-white/40">
-                    {/* <CommandInput
-                      placeholder="Search option..."
-                      className="h-9"
-                    /> */}
                     <CommandEmpty>No option found.</CommandEmpty>
                     <CommandGroup>
                       {tradeflows.map((option) => (
@@ -144,15 +146,19 @@ const TopFoods = () => {
                     </CommandGroup>
                   </Command>
                 </PopoverContent>
-              </Popover>
+              </Popover> */}
               <ComboboxDemo
                 options={Year}
                 defaultValue={"2018"}
                 defaultLabel={"2018"}
+                handleSelectValue={handleSelectValue}
+                setOpen={setOpen}
+                value={value}
+                open={open}
               />
             </div>
 
-            <Treemap Data={Data} />
+            <Treemap data={foodData.Data} />
           </div>
         </div>
       </div>
