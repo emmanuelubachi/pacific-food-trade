@@ -21,7 +21,7 @@ function Treemap({ data }) {
   return (
     <ReactEcharts
       option={option}
-      style={{ height: 700 }}
+      className="sm:h-full min-h-[80vh]"
       theme={"vintage"}
       opts={{ renderer: "svg" }}
     />
