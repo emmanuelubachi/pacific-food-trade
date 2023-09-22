@@ -20,29 +20,6 @@ import {
 } from "@/components/ui/popover";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
-const countries = [
-  {
-    value: "next.js",
-    label: "Next.js",
-  },
-  {
-    value: "sveltekit",
-    label: "SvelteKit",
-  },
-  {
-    value: "nuxt.js",
-    label: "Nuxt.js",
-  },
-  {
-    value: "remix",
-    label: "Remix",
-  },
-  {
-    value: "astro",
-    label: "Astro",
-  },
-];
-
 export default function CountrySelector() {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState("");
@@ -89,7 +66,9 @@ export default function CountrySelector() {
       max-w-xs"
       >
         <Command>
-          <CommandInput placeholder="Search framework..." className="h-9" />
+          <div className="hidden sm:block">
+            <CommandInput placeholder="Search framework..." className="h-9" />
+          </div>
           <CommandEmpty>No framework found.</CommandEmpty>
           <CommandGroup>
             <ScrollArea className="h-72 rounded-md">
