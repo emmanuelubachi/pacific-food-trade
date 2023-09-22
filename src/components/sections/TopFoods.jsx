@@ -1,40 +1,13 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Treemap from "@/components/charts/Treemap";
 import { ComboboxDemo } from "@/components/ui/Combobox";
 
-import { CaretSortIcon, CheckIcon } from "@radix-ui/react-icons";
-
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
-import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-} from "@/components/ui/command";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
-
 const TopFoods = ({ data }) => {
   const [open, setOpen] = useState(false);
-  const [value, setValue] = useState("2018" || "");
-
-  // const [tradeflow, setTradeflow] = useState("export" || "");
-  // const [open, setOpen] = React.useState(false);
-
-  const handleSelectValue = (currentValue) => {
-    setValue(currentValue === value ? "" : currentValue);
-    setOpen(false);
-  };
-
-  const foodData = data;
-  //console.log(value);
+  const [value, setValue] = useState("2018");
+  const [selectedData, setSelectedData] = useState(null);
 
   const Year = [
     {
@@ -55,16 +28,18 @@ const TopFoods = ({ data }) => {
     },
   ];
 
-  const tradeflows = [
-    {
-      value: "export",
-      label: "Export",
-    },
-    {
-      value: "import",
-      label: "Import",
-    },
-  ];
+  useEffect(() => {
+    // Use the data passed as props to filter and select the object with the chosen year.
+    const selectedYear = parseInt(value);
+    const selectedObject = data.find((item) => item.Year === selectedYear);
+
+    setSelectedData(selectedObject);
+  }, [value, data]);
+
+  const handleSelectValue = (currentValue) => {
+    setValue(currentValue);
+    setOpen(false);
+  };
 
   return (
     <section className="bg-gradient-to-br from-orange-50 to-white py-24">
@@ -100,53 +75,8 @@ const TopFoods = ({ data }) => {
             </p>
           </div>
 
-          <div className=" ">
+          <div className=" sm:h-full min-h-screen ">
             <div className="flex gap-2 justify-end">
-              {/* <Popover open={open} onOpenChange={setOpen}>
-                <PopoverTrigger asChild>
-                  <Button
-                    variant="outline"
-                    role="combobox"
-                    aria-expanded={open}
-                    className="w-[200px] justify-between hover:bg-white/60"
-                  >
-                    {tradeflows
-                      ? tradeflows.find((option) => option.value === tradeflow)
-                          ?.label
-                      : "Export"}
-                    <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-                  </Button>
-                </PopoverTrigger>
-                <PopoverContent className="w-[200px] p-0 border-white/20 bg-stone-50">
-                  <Command className="bg-white/40">
-                    <CommandEmpty>No option found.</CommandEmpty>
-                    <CommandGroup>
-                      {tradeflows.map((option) => (
-                        <CommandItem
-                          className="aria-selected:bg-stone-200"
-                          key={option.value}
-                          onSelect={(currentValue) => {
-                            setTradeflow(
-                              currentValue === tradeflow ? "" : currentValue
-                            );
-                            setOpen(false);
-                          }}
-                        >
-                          {option.label}
-                          <CheckIcon
-                            className={cn(
-                              "ml-auto h-4 w-4",
-                              tradeflow === option.value
-                                ? "opacity-100"
-                                : "opacity-0"
-                            )}
-                          />
-                        </CommandItem>
-                      ))}
-                    </CommandGroup>
-                  </Command>
-                </PopoverContent>
-              </Popover> */}
               <ComboboxDemo
                 options={Year}
                 defaultValue={"2018"}
@@ -157,8 +87,8 @@ const TopFoods = ({ data }) => {
                 open={open}
               />
             </div>
-
-            <Treemap data={foodData.Data} />
+            {/* Display the selectedData in Treemap */}
+            {selectedData && <Treemap data={selectedData.Data} />}
           </div>
         </div>
       </div>
