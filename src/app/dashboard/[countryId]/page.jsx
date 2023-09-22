@@ -1,6 +1,6 @@
 import React from "react";
 import TopFoods from "@/components/sections/TopFoods";
-import TopFoodData from "@/data/food_trade.json";
+import TopFoodData from "@/data/food_trade_by_year.json";
 
 const CountryPage = ({ params }) => {
   const countryISO = params.countryId;
@@ -18,7 +18,7 @@ const CountryPage = ({ params }) => {
 
   return (
     <main>
-      <TopFoods data={data[0]} />
+      <TopFoods data={data} />
     </main>
   );
 };

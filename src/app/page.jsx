@@ -5,7 +5,7 @@ const FeedingThePacific = () => {
   return (
     <>
       <header>
-        <section className="bg-gradient-to-br min-h-screen from-orange-100 to-orange-50 py-48">
+        <section className="bg-gradient-to-br h-screen from-orange-100 to-orange-50 py-48">
           <div className="m-auto flex flex-col items-center justify-center space-y-10">
             <h1
               className="mb-4 
