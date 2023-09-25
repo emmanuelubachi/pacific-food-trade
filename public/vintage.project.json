@@ -10,8 +10,8 @@
     "textColor": "#333",
     "markTextColor": "#eee",
     "color": [
-      "#d87c7c",
       "#919e8b",
+      "#d87c7c",
       "#d7ab82",
       "#6e7074",
       "#61a0a8",
@@ -19,7 +19,8 @@
       "#787464",
       "#cc7e63",
       "#724e58",
-      "#4b565b"
+      "#4b565b",
+      "#6189a8"
     ],
     "borderColor": "#ccc",
     "borderWidth": 0,
