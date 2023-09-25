@@ -16,27 +16,12 @@ const ProjectNavbar = () => {
             font-semibold 
             whitespace-nowrap 
             text-transparent bg-clip-text 
-            bg-gradient-to-tr from-primary-800 to-pink-500"
+            bg-gradient-to-tr from-pri-2 to-pri-1"
           >
             Chi
           </span>
         </a>
         <div className="flex md:order-2">
-          <button
-            type="button"
-            className="text-white 
-            bg-primary-900 
-            rounded-lg 
-            px-3 py-1 sm:px-5 sm:py-3
-            mr-3
-            font-medium 
-            text-xs sm:text-sm text-center
-            hover:bg-gradient-to-tr hover:from-primary-800 hover:to-pink-700
-            transition-transform hover:scale-110 cursor-pointer
-            focus:ring-4 focus:outline-none focus:ring-blue-300"
-          >
-            BOOK A CALL
-          </button>
           <Link
             href="/"
             className="text-primary-900 hover:text-white
@@ -46,7 +31,7 @@ const ProjectNavbar = () => {
             mr-0
             font-medium 
             text-xs sm:text-sm text-center
-            hover:bg-pink-500 
+            hover:bg-gradient-to-tr hover:from-pri-2 hover:to-pri-1
             cursor-pointer"
           >
             Back
