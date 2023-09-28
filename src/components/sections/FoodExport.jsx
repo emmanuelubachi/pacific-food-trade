@@ -8,7 +8,7 @@ const FoodExport = ({ data, countryName }) => {
 
   return (
     <section className="bg-gradient-to-b from-white via-orange-100 to-white py-8">
-      <div className="m-auto max-w-screen-xl px-4 mb-4">
+      <div className="m-auto max-w-screen-xl px-4 my-4">
         <h2
           className="mb-4 
             text-xl min-[400px]:text-2xl 
