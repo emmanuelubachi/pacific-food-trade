@@ -1,17 +1,30 @@
 import React from "react";
 import CountrySelector from "./components/CountrySelector";
+import Image from "next/image";
+import Background from "/public/p1.png";
 
 const FeedingThePacific = () => {
   return (
     <>
       <header>
-        <section className="bg-gradient-to-br min-h-screen from-orange-100 to-orange-50 py-48">
-          <div className="m-auto flex flex-col items-center justify-center space-y-10">
+        <div className=" -z-[1] fixed w-screen h-screen">
+          <Image
+            alt="Fancy Background Image"
+            src={Background}
+            placeholder="blur"
+            quality={100}
+            fill
+            sizes="100vw"
+            style={{ objectFit: "cover" }}
+          />
+        </div>
+        <section className="m-0 h-[80vh] flex items-center justify-center">
+          <div className="m-0 flex flex-col items-center justify-center sm:space-y-10 space-y-2 w-fit bg-pri-12/90 p-4 rounded-2xl">
             <h1
               className="mb-4 
             text-3xl sm:text-4xl md:text-5xl lg:text-6xl
             font-extrabold leading-none tracking-tight 
-            text-stone-600 "
+            text-stone-700 "
             >
               Feeding the Pacific
             </h1>
