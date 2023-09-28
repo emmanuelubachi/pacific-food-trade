@@ -28,24 +28,49 @@ const MapFilters = ({ data, options }) => {
     setValue(currentValue);
     setOpen(false);
   };
+
   const mapCountries = Countries.features;
+  // console.log({selectedData});
 
-  const load = () => {
-    // const mapCountries = countries.features;
-    setCountries(mapCountries);
-  };
-
-  // processData = (data) => {
-  //   for (let i = 0; < )
-
-  // }
+  // const load = (data) => {
+  //   // const mapCountries = countries.features;
+  //   // setCountries(mapCountries);
+  //   console.log(processData(data));
+  // };
 
   // const load = () => {
   //   const loadCountriesTask = new LoadCountriesTask();
   //   loadCountriesTask.load(setCountries, selectedData);
   // };
 
-  useEffect(load, []);
+  useEffect(() => {
+    if (selectedData) {
+      // Check if selectedData is defined before processing it
+      console.log("Selected Data:", selectedData.Data);
+      processData(selectedData.Data);
+    }
+    // const data = selectedData;
+    // console.log(processData(data));
+  }, [selectedData]);
+
+  const processData = (countriesData) => {
+    for (let i = 0; i < mapCountries.length; i++) {
+      const mapCountry = mapCountries[i];
+      const countryData = countriesData.find(
+        (countryData) =>
+          countryData.ExporterISO === mapCountry.properties.ISO_A3
+      );
+      // mapCountry.properties.quantity = 0;
+      // mapCountry.properties.quantityText = "0";
+
+      if (countryData != null) {
+        const quantity = Number(500);
+        mapCountry.properties.quantity = quantity;
+        mapCountry.properties.quantityText = quantity;
+      }
+    }
+    setCountries(mapCountries);
+  };
 
   return (
     <div>

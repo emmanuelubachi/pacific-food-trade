@@ -13,8 +13,8 @@ export default function ChoroplethMap({ countries }) {
   const onEachCountry = (country, layer) => {
     layer.options.fillColor = country.properties.color;
     const name = country.properties.ADMIN;
-    const confirmedText = country.properties.confirmedText;
-    layer.bindPopup(`${name} ${confirmedText}`);
+    const quantityText = country.properties.quantityText;
+    layer.bindPopup(`${name} ${quantityText}`);
   };
   return (
     <MapContainer
