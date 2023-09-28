@@ -5,9 +5,6 @@ import { getTop4YearsWithLabels } from "@/lib/utils";
 const TradeMap = ({ data }) => {
   const YearFilterValues = getTop4YearsWithLabels(data);
 
-  console.log(data);
-  console.log(YearFilterValues);
-
   return (
     <section className="bg-gradient-to-b from-pri-12 to-white">
       <div

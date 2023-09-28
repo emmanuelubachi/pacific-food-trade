@@ -20,6 +20,8 @@ const MapFilters = ({ data, options }) => {
   const [value, setValue] = useState(Year[0].value);
   const [selectedData, setSelectedData] = useState(null);
 
+  console.log(selectedData);
+
   useEffect(() => {
     // Use the data passed as props to filter and select the object with the chosen year.
     const selectedYear = parseInt(value);
