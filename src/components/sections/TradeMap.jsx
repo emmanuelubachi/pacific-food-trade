@@ -1,18 +1,12 @@
-"use client";
-import React, { useState, useEffect } from "react";
-import Map from "@/components/charts/Map";
-import Loading from "../body/Loading";
-import LoadCountriesTask from "@/tasks/LoadCountriesTask";
+import React from "react";
+import MapFilters from "../chartFrame/MapFilters";
+import { getTop4YearsWithLabels } from "@/lib/utils";
 
-export default function TradeMap() {
-  const [countries, setCountries] = useState([]);
+const TradeMap = ({ data }) => {
+  const YearFilterValues = getTop4YearsWithLabels(data);
 
-  const load = () => {
-    const loadCountriesTask = new LoadCountriesTask();
-    loadCountriesTask.load(setCountries);
-  };
-
-  useEffect(load, []);
+  console.log(data);
+  console.log(YearFilterValues);
 
   return (
     <section className="bg-gradient-to-b from-pri-12 to-white">
@@ -51,9 +45,12 @@ export default function TradeMap() {
               requests, incidents, and changes.
             </p>
           </div>
-          {countries.length === 0 ? <Loading /> : <div></div>}
+
+          <MapFilters data={data} options={YearFilterValues} />
         </div>
       </div>
     </section>
   );
-}
+};
+
+export default TradeMap;
