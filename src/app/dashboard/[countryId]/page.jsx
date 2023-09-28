@@ -2,9 +2,10 @@ import React from "react";
 // import { useRouter } from "next/navigation";
 
 import Country from "@/data/pacific_country.json";
+import FoodTradeImports from "@/data/food_trade_imports.json";
 import TopFoodExportData from "@/data/food_exports_by_year.json";
 import TopFoodImportData from "@/data/food_imports_by_year.json";
-import FoodTradeTrend from "../../../data/food_trade_trend.json";
+import FoodTradeTrend from "@/data/food_trade_trend.json";
 
 import FoodImport from "@/components/sections/FoodImport";
 import FoodExport from "@/components/sections/FoodExport";
@@ -19,6 +20,9 @@ const CountryPage = ({ params }) => {
 
   const country = Country.filter(
     (countryinfo) => countryinfo.iso3 === countryISO
+  );
+  const tradeImports = FoodTradeImports.filter(
+    (trade) => trade.ImporterISO === countryISO
   );
   const exportData = TopFoodExportData.filter(
     (foodData) => foodData.iso3 === countryISO
@@ -42,7 +46,9 @@ const CountryPage = ({ params }) => {
       <main>
         {country.length && <Hero countryName={country[0].country} />}
 
-        <TradeMap />
+        {/* {console.log(tradeImports)} */}
+
+        <TradeMap data={tradeImports} />
 
         {/* {importData.length && (
           <FoodImport data={importData} countryName={country[0].country} />
