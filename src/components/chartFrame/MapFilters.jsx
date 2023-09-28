@@ -6,6 +6,7 @@ import { ComboboxDemo } from "@/components/ui/Combobox";
 import Loading from "../body/Loading";
 import ChoroplethMap from "@/components/charts/ChoroplethMap";
 import LoadCountriesTask from "@/tasks/LoadCountriesTask";
+import Countries from "@/data/countries.json";
 
 const MapFilters = ({ data, options }) => {
   const Year = options;
@@ -27,11 +28,22 @@ const MapFilters = ({ data, options }) => {
     setValue(currentValue);
     setOpen(false);
   };
+  const mapCountries = Countries.features;
 
   const load = () => {
-    const loadCountriesTask = new LoadCountriesTask();
-    loadCountriesTask.load(setCountries, selectedData);
+    // const mapCountries = countries.features;
+    setCountries(mapCountries);
   };
+
+  // processData = (data) => {
+  //   for (let i = 0; < )
+
+  // }
+
+  // const load = () => {
+  //   const loadCountriesTask = new LoadCountriesTask();
+  //   loadCountriesTask.load(setCountries, selectedData);
+  // };
 
   useEffect(load, []);
 

@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { MapContainer, GeoJSON } from "react-leaflet";
-//import "leaflet/dist/leaflet.css";
+import "leaflet/dist/leaflet.css";
 
 export default function ChoroplethMap({ countries }) {
   const mapStyle = {
@@ -18,7 +18,7 @@ export default function ChoroplethMap({ countries }) {
   };
   return (
     <MapContainer
-      style={{ height: "90vh", background: "white" }}
+      style={{ height: "70vh", background: "white" }}
       zoom={2}
       center={[20, 0]}
     >
