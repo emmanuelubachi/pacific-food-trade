@@ -5,22 +5,15 @@ import Treemap from "@/components/charts/Treemap";
 import { ComboboxDemo } from "@/components/ui/Combobox";
 import Loading from "../body/Loading";
 import ChoroplethMap from "@/components/charts/ChoroplethMap";
+import LoadCountriesTask from "@/tasks/LoadCountriesTask";
 
 const MapFilters = ({ data, options }) => {
   const Year = options;
 
   const [countries, setCountries] = useState([]);
-
-  // const load = () => {
-  //   const loadCountriesTask = new LoadCountriesTask();
-  //   loadCountriesTask.load(setCountries);
-  // };
-
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(Year[0].value);
   const [selectedData, setSelectedData] = useState(null);
-
-  console.log(selectedData);
 
   useEffect(() => {
     // Use the data passed as props to filter and select the object with the chosen year.
@@ -34,6 +27,13 @@ const MapFilters = ({ data, options }) => {
     setValue(currentValue);
     setOpen(false);
   };
+
+  const load = () => {
+    const loadCountriesTask = new LoadCountriesTask();
+    loadCountriesTask.load(setCountries, selectedData);
+  };
+
+  useEffect(load, []);
 
   return (
     <div>
@@ -61,8 +61,8 @@ const MapFilters = ({ data, options }) => {
             {countries.length === 0 ? (
               <Loading />
             ) : (
-              <div />
-              // <ChoroplethMap countries={countries} />
+              // <div />
+              <ChoroplethMap countries={countries} />
             )}
             {/* {selectedData && <Treemap data={selectedData.Data} />} */}
           </div>
