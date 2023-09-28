@@ -42,14 +42,14 @@ export default function CountrySelector() {
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="w-[700px] py-8 justify-between
+          className="w-[700px] py-8 justify-between rounded-none
           lg:max-w-xl lg:text-xl
           md:max-w-md md:text-lg
           sm:max-w-sm sm:text-md
-          max-w-xs text-sm font-light
+          max-w-xs text-sm font-medium
         text-stone-800 
           bg-transparent hover:bg-white/20
-          border-0 border-b-2 
+          border-0 border-b border-stone-400 
          "
         >
           {value
