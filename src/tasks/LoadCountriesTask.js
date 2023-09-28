@@ -14,7 +14,7 @@ class LoadCountriesTask {
 
   #processData = (countriesData) => {
     for (let i = 0; i < this.mapCountries.length; i++) {
-      const mapCountries = this.mapCountries[i];
+      const mapCountry = this.mapCountries[i];
       // const countryData = countriesData.find(
       //   (country) => country.ExportISO === mapCountries.properties.ISO_A3
       // );
