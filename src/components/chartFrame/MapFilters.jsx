@@ -1,12 +1,12 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import Treemap from "@/components/charts/Treemap";
 import { ComboboxDemo } from "@/components/ui/Combobox";
 import Loading from "../body/Loading";
 import ChoroplethMap from "@/components/charts/ChoroplethMap";
 import LoadCountriesTask from "@/tasks/LoadCountriesTask";
 import Countries from "@/data/countries.json";
+import Map from "../charts/Map";
 
 const MapFilters = ({ data, options }) => {
   const Year = options;
@@ -46,30 +46,30 @@ const MapFilters = ({ data, options }) => {
   useEffect(() => {
     if (selectedData) {
       // Check if selectedData is defined before processing it
-      console.log("Selected Data:", selectedData.Data);
       processData(selectedData.Data);
     }
-    // const data = selectedData;
-    // console.log(processData(data));
+
   }, [selectedData]);
 
   const processData = (countriesData) => {
-    for (let i = 0; i < mapCountries.length; i++) {
-      const mapCountry = mapCountries[i];
+    const updatedMapCountries = mapCountries.map((mapCountry) => {
       const countryData = countriesData.find(
-        (countryData) =>
-          countryData.ExporterISO === mapCountry.properties.ISO_A3
+        (countryData) => countryData.ExporterISO === mapCountry.properties.ISO_A3
       );
-      // mapCountry.properties.quantity = 0;
-      // mapCountry.properties.quantityText = "0";
-
-      if (countryData != null) {
-        const quantity = Number(500);
-        mapCountry.properties.quantity = quantity;
-        mapCountry.properties.quantityText = quantity;
-      }
-    }
-    setCountries(mapCountries);
+  
+      const quantity = countryData ? Number(countryData.Quantity) : 0;
+  
+      return {
+        ...mapCountry,
+        properties: {
+          ...mapCountry.properties,
+          quantity,
+          quantityText: quantity.toString(),
+        },
+      };
+    });
+  
+    setCountries(updatedMapCountries);
   };
 
   return (
@@ -98,8 +98,8 @@ const MapFilters = ({ data, options }) => {
             {countries.length === 0 ? (
               <Loading />
             ) : (
-              // <div />
-              <ChoroplethMap countries={countries} />
+              <Map Data={selectedData.Data} />
+              // <ChoroplethMap countries={countries} />
             )}
             {/* {selectedData && <Treemap data={selectedData.Data} />} */}
           </div>
