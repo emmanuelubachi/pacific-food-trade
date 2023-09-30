@@ -3,7 +3,7 @@ import MapFilters from "../chartFrame/MapFilters";
 import { getTop4YearsWithLabels } from "@/lib/utils";
 
 const TradeMap = ({ data }) => {
-  const YearFilterValues = getTop4YearsWithLabels(data);
+  //const YearFilterValues = getTop4YearsWithLabels(data);
 
   return (
     <section className="bg-gradient-to-b from-pri-12 to-white">
@@ -43,7 +43,7 @@ const TradeMap = ({ data }) => {
             </p>
           </div>
 
-          <MapFilters data={data} options={YearFilterValues} />
+          <MapFilters data={data} />
         </div>
       </div>
     </section>
