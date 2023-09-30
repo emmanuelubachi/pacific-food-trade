@@ -3,16 +3,18 @@ import React from "react";
 
 import Country from "@/data/pacific_country.json";
 import FoodTradeImports from "@/data/food_imports_map.json";
-import TopFoodExportData from "@/data/food_exports_by_year.json";
-import TopFoodImportData from "@/data/food_imports_by_year.json";
+// import TopFoodExportData from "@/data/food_exports_by_year.json";
+import TopFoodImportData from "@/data/imports_by_commodity.json";
 import FoodTradeTrend from "@/data/imports_trend.json";
+import ProductTradeTrend from "@/data/imports_trend_by_product.json";
 
+import FoodProductTrend from "@/components/sections/FoodProductTrend";
 import FoodImport from "@/components/sections/FoodImport";
-import FoodExport from "@/components/sections/FoodExport";
+// import FoodExport from "@/components/sections/FoodExport";
 import FoodTrend from "@/components/sections/FoodTrend";
 import Hero from "@/components/sections/Hero";
 
-import Navigation from "@/components/sections/navigation";
+// import Navigation from "@/components/sections/navigation";
 import TradeMap from "@/components/sections/TradeMap";
 
 const CountryPage = ({ params }) => {
@@ -24,14 +26,14 @@ const CountryPage = ({ params }) => {
   const tradeImports = FoodTradeImports.filter(
     (trade) => trade.ImporterISO === countryISO
   );
-  // const exportData = TopFoodExportData.filter(
-  //   (foodData) => foodData.iso3 === countryISO
-  // );
   const importData = TopFoodImportData.filter(
-    (foodData) => foodData.iso3 === countryISO
+    (foodData) => foodData.ImporterISO === countryISO
   );
   const tradeTrendData = FoodTradeTrend.filter(
     (trendData) => trendData.ImporterISO === countryISO
+  );
+  const productTradeTrend = ProductTradeTrend.filter(
+    (productData) => productData.ImporterISO === countryISO
   );
 
   if (country.length === 0) {
@@ -91,12 +93,19 @@ const CountryPage = ({ params }) => {
           <TradeMap data={tradeImports} countryName={country[0].country} />
         )}
 
+        {tradeTrendData && (
+          <FoodTrend data={tradeTrendData} countryName={country[0].country} />
+        )}
+
         {importData.length && (
           <FoodImport data={importData} countryName={country[0].country} />
         )}
 
-        {tradeTrendData && (
-          <FoodTrend data={tradeTrendData} countryName={country[0].country} />
+        {productTradeTrend && (
+          <FoodProductTrend
+            data={productTradeTrend}
+            countryName={country[0].country}
+          />
         )}
 
         {/* {exportData.length && (

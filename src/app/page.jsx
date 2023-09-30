@@ -13,6 +13,7 @@ const FeedingThePacific = () => {
             src={Background}
             placeholder="blur"
             quality={100}
+            priority={true}
             fill
             sizes="100vw"
             style={{ objectFit: "cover" }}
