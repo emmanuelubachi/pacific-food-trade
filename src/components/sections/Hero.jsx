@@ -33,8 +33,8 @@ const Hero = ({ countryName }) => {
           >
             Explore the intricate web of international food trade as it pertains
             to this unique Pacific nation. Gain a deeper understanding of{" "}
-            {countryName}'s role in the global food market, from its trading
-            partners to the types of food it imports.
+            {countryName}&apos;s role in the global food market, from its
+            trading partners to the types of food it imports.
           </p>
         </div>
         <div className="my-0 sm:hidden flex flex-col items-end justify-center">

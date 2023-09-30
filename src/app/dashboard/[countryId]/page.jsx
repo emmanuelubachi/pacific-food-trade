@@ -5,7 +5,7 @@ import Country from "@/data/pacific_country.json";
 import FoodTradeImports from "@/data/food_imports_map.json";
 import TopFoodExportData from "@/data/food_exports_by_year.json";
 import TopFoodImportData from "@/data/food_imports_by_year.json";
-import FoodTradeTrend from "@/data/food_trade_trend.json";
+import FoodTradeTrend from "@/data/imports_trend.json";
 
 import FoodImport from "@/components/sections/FoodImport";
 import FoodExport from "@/components/sections/FoodExport";
@@ -24,14 +24,14 @@ const CountryPage = ({ params }) => {
   const tradeImports = FoodTradeImports.filter(
     (trade) => trade.ImporterISO === countryISO
   );
-  const exportData = TopFoodExportData.filter(
-    (foodData) => foodData.iso3 === countryISO
-  );
+  // const exportData = TopFoodExportData.filter(
+  //   (foodData) => foodData.iso3 === countryISO
+  // );
   const importData = TopFoodImportData.filter(
     (foodData) => foodData.iso3 === countryISO
   );
   const tradeTrendData = FoodTradeTrend.filter(
-    (trendData) => trendData.iso3 === countryISO
+    (trendData) => trendData.ImporterISO === countryISO
   );
 
   if (country.length === 0) {
@@ -95,11 +95,14 @@ const CountryPage = ({ params }) => {
           <FoodImport data={importData} countryName={country[0].country} />
         )}
 
+        {tradeTrendData && (
+          <FoodTrend data={tradeTrendData} countryName={country[0].country} />
+        )}
+
         {/* {exportData.length && (
           <FoodExport data={exportData} countryName={country[0].country} />
         )} */}
 
-        {tradeTrendData && <FoodTrend data={tradeTrendData} />}
         {/* <Navigation /> */}
       </main>
     );

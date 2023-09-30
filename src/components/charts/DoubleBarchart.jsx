@@ -7,26 +7,36 @@ import ReactECharts from "echarts-for-react";
 export default function DoubleBarchart({ data }) {
   //echarts.registerTheme("vintage", VintageTheme.theme);
 
-  echarts.registerTheme("vintage", {
-    color: ["#919e8b", "#6189a8"],
+  echarts.registerTheme("barcolor", {
+    color: ["#cfaa23"], //"#cfaa23"  6189a8
   });
   const option = {
+    tooltip: {
+      trigger: "axis",
+      axisPointer: {
+        type: "cross",
+        label: {
+          backgroundColor: "#283b56",
+        },
+      },
+    },
     xAxis: {
       type: "category",
       data: data.map((item) => item.Year.toString()),
+      splitLine: {
+        show: false,
+      },
     },
     yAxis: {
       type: "value",
+      splitLine: {
+        show: false,
+      },
     },
     series: [
       {
-        name: "Export",
-        data: data.map((item) => item.Export),
-        type: "bar",
-      },
-      {
         name: "Import",
-        data: data.map((item) => item.Import),
+        data: data.map((item) => item.Quantity),
         type: "bar",
       },
     ],
@@ -35,8 +45,8 @@ export default function DoubleBarchart({ data }) {
     <>
       <ReactECharts
         option={option}
-        style={{ height: 300 }}
-        theme={"vintage"}
+        className="sm:h-full min-h-[45vh]"
+        theme={"barcolor"}
         opts={{ renderer: "svg" }}
       />
     </>
