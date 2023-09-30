@@ -46,6 +46,7 @@ module.exports = {
         "pri-10": "#4b565b",
         "pri-11": "#6189a8",
         "pri-12": "#e3e0cd",
+        "pri-13": "#cfaa23",
       },
     },
   },
