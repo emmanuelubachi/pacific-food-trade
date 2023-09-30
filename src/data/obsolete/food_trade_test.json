@@ -1,0 +1,38 @@
+[
+  {
+    "name": "nodeA",
+    "value": 10
+  },
+  {
+    "name": "nodeB",
+    "value": 20
+  },
+  {
+    "name": "nodec",
+    "value": 25
+  },
+  {
+    "name": "nodeD",
+    "value": 50
+  },
+  {
+    "name": "nodeE",
+    "value": 30
+  },
+  {
+    "name": "nodeF",
+    "value": 76
+  },
+  {
+    "name": "nodeG",
+    "value": 29
+  },
+  {
+    "name": "nodeH",
+    "value": 80
+  },
+  {
+    "name": "nodeI",
+    "value": 42
+  }
+]

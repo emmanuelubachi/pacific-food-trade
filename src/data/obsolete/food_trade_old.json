@@ -1,0 +1,19 @@
+{
+  "Exporter": "American Samoa",
+  "Time": 2018,
+  "Data": [
+    { "name": "Beverages, spirits and vinegar", "value": 120 },
+    {
+      "name": "Cereal, flour, starch, milk preparations and products",
+      "value": 75
+    },
+    {
+      "name": "Dairy products, eggs, honey, edible animal product nes",
+      "value": 5
+    },
+    { "name": "Meat and edible meat offal", "value": 235 },
+    { "name": "Meat, fish and seafood food preparations nes", "value": 30 },
+    { "name": "Sugars and sugar confectionery", "value": 15 },
+    { "name": "Vegetable, fruit, nut, etc food preparations", "value": 0 }
+  ]
+}
