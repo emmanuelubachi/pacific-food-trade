@@ -7,7 +7,7 @@ const TradeMap = ({ data, countryName }) => {
 
   return (
     <section className="">
-      <div className="m-auto max-w-screen-xl px-4 lg:my-8 my-4">
+      <div className="m-auto max-w-screen-xl px-4 lg:my-12 my-6">
         <h2
           className="mb-4
                 text-xl min-[400px]:text-xl 

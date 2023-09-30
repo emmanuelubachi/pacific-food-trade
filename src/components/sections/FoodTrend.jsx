@@ -20,7 +20,7 @@ const FoodTrend = ({ data }) => {
             font-bold leading-none tracking-tight 
             text-stone-600 "
         >
-          Food Trend
+          Product-Specific Trends
         </h2>
 
         <div

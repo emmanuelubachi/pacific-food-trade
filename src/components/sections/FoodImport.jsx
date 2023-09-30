@@ -8,7 +8,7 @@ const TopFoods = ({ data, countryName }) => {
 
   return (
     <section className="bg-gradient-to-b from-white via-orange-50 to-white">
-      <div className="m-auto max-w-screen-xl px-4 g:my-8 my-4">
+      <div className="m-auto max-w-screen-xl px-4 lg:my-12 my-6">
         <h2
           className="mb-4
           text-xl min-[400px]:text-xl 
@@ -38,7 +38,7 @@ const TopFoods = ({ data, countryName }) => {
         </p>
 
         <div className="mx-auto items-center justify-center">
-          <div className="sm:h-full min-h-screen ">
+          <div>
             <YearFilter title={title} data={data} options={YearFilterValues} />
           </div>
         </div>
