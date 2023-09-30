@@ -54,9 +54,9 @@ const Map = ({ Data }) => {
   const option = {
     title: {
       text: "Quantity of Food Imported (2018)",
-      //subtext: "Data from www.census.gov",
+      subtext: "Map of Trading Partners",
       //sublink: "http://www.census.gov/popest/data/datasets.html",
-      left: "left",
+      left: "right",
     },
     tooltip: {
       trigger: "item",
@@ -67,7 +67,9 @@ const Map = ({ Data }) => {
       },
     },
     visualMap: {
-      left: "right",
+      left: "center",
+      bottom: 20,
+      orient: "horizontal",
       min: result.lowest.value,
       max: result.highest.value,
       inRange: {
@@ -81,6 +83,7 @@ const Map = ({ Data }) => {
           "#2f4027",
         ],
       },
+      //type: "piecewise",
       text: ["High", "Low"],
       calculable: true,
       formatter: function (value) {
@@ -90,7 +93,7 @@ const Map = ({ Data }) => {
     toolbox: {
       show: true,
       //orient: 'vertical',
-      left: "right",
+      left: "left",
       top: "top",
       feature: {
         dataView: { readOnly: false },

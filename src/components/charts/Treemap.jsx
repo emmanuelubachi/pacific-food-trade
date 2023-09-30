@@ -12,6 +12,16 @@ function Treemap({ data }) {
   }
 
   const option = {
+    toolbox: {
+      show: true,
+      left: "left",
+      top: "top",
+      feature: {
+        dataView: { readOnly: false },
+        restore: {},
+        saveAsImage: {},
+      },
+    },
     tooltip: {
       show: true,
     },
@@ -48,7 +58,7 @@ function Treemap({ data }) {
   return (
     <ReactEcharts
       option={option}
-      className="sm:h-full min-h-[80vh]"
+      className="sm:h-full min-h-[70vh]"
       theme={"vintage"}
       opts={{ renderer: "svg" }}
     />
