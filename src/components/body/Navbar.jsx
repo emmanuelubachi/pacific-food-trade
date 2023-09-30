@@ -19,13 +19,13 @@ const Navbar = () => {
     {
       id: 2,
       name: "Food Trade",
-      url: "#features",
+      url: "#",
     },
-    {
-      id: 3,
-      name: "Food Security",
-      url: "#projects",
-    },
+    // {
+    //   id: 3,
+    //   name: "Food Security",
+    //   url: "#projects",
+    // },
   ];
 
   return (
@@ -48,7 +48,7 @@ const Navbar = () => {
           </span>
         </a>
 
-        <div className="flex md:order-1 items-center justify-between sm:gap-2 gap-1">
+        <div className="flex md:order-1 items-center justify-between sm:gap-2 gap-2">
           {/* <Link
             href="/"
             className="text-white 
