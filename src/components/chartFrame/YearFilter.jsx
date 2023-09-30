@@ -24,10 +24,6 @@ const YearFilter = ({ data, options }) => {
     setValue(currentValue);
     setOpen(false);
   };
-  console.log(selectedData);
-  const dataset = selectedData;
-
-  console.log("dataset", dataset);
 
   return (
     <div>
@@ -39,7 +35,7 @@ const YearFilter = ({ data, options }) => {
               md:grid md:grid-cols-1
               xl:gap-16"
         >
-          <div className=" sm:h-full min-h-screen ">
+          <div>
             <div className="flex gap-2 justify-end">
               <ComboboxDemo
                 options={Year}
