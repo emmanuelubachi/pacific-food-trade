@@ -26,7 +26,7 @@ const FeedingThePacific = () => {
             font-extrabold leading-none tracking-tight 
             text-stone-700 "
             >
-              Feeding the Pacific
+              Pacific Food Trade
             </h1>
             <CountrySelector />
           </div>

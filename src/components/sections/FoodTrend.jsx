@@ -41,10 +41,10 @@ const FoodTrend = ({ data, countryName }) => {
             lg:leading-8"
         >
           Follow the trajectory of food imports by {countryName} over time. This
-          line chart tracks food imports from the year 2000 until today,
-          offering insights into the general trends and fluctuations in food
-          trade. Analyze how overall imports have evolved and identify key
-          turning points.
+          line chart tracks food imports from the year 1995 until 2018, offering
+          insights into the general trends and fluctuations in food trade.
+          Analyze how overall imports have evolved and identify key turning
+          points.
         </p>
 
         <div
