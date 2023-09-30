@@ -5,7 +5,7 @@ import HeroImg from "/public/p2.png";
 
 const Hero = ({ countryName }) => {
   return (
-    <section className="min-[1440px]:mt-8 mt-12 bg-gradient-to-t from-pri-12 to-white">
+    <section className="min-[1440px]:mt-8 sm:mt-12 mt-24 bg-gradient-to-t from-pri-12 to-white">
       <div className="grid max-w-screen-xl px-4 pt-8 mx-auto md:gap-8 xl:gap-0 lg:pt-16 sm:grid-cols-12">
         <div className="mr-auto place-self-center sm:col-span-5">
           <h1
@@ -42,6 +42,7 @@ const Hero = ({ countryName }) => {
             <Image
               src={HeroImg}
               alt="A picture of Emmanuel Ubachi"
+              priority={true}
               style={{
                 maxWidth: "80%",
                 height: "auto",
@@ -53,6 +54,7 @@ const Hero = ({ countryName }) => {
           <Image
             src={HeroImg}
             alt="A picture of Emmanuel Ubachi"
+            priority={true}
             style={{
               maxWidth: "100%",
               height: "auto",

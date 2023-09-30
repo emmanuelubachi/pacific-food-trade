@@ -32,7 +32,7 @@ const TopFoods = ({ data, countryName }) => {
           its proportion in the overall imports.{" "}
           <span className=" italic text-gray-600 font-light">
             You can filter data by year to observe changes in food preferences
-            over the last 4 years. Discover the diversity of food imports and
+            over the last 5 years. Discover the diversity of food imports and
             their trends.
           </span>
         </p>
