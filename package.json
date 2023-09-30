@@ -4,10 +4,14 @@
   "author": "Emmanuel Ubachi",
   "homepage": "/feeding-the-pacific",
   "private": true,
+  "engines": {
+    "node": "18.x"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "heroku-postbuild": "npm run build",
     "lint": "next lint"
   },
   "dependencies": {
