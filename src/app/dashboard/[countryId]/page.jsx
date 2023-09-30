@@ -76,12 +76,12 @@ const CountryPage = ({ params }) => {
                   lg:text-base
                   lg:leading-8"
               >
-                Analyze the trends that have shaped {country[0].country}'s
+                Analyze the trends that have shaped {country[0].country}&apos;s
                 culinary landscape and discover the stories behind its food
-                imports. Whether you're here for research, policymaking, or
+                imports. Whether you&apos;re here for research, policymaking, or
                 simply curiosity, this dashboard will provide you with valuable
                 insights into the world of food trade in {country[0].country}.
-                Let's embark on this data-driven exploration together.
+                Let&apos;s embark on this data-driven exploration together.
               </p>
             </div>
           </div>
