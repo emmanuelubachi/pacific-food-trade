@@ -46,13 +46,54 @@ const CountryPage = ({ params }) => {
       <main>
         {country.length && <Hero countryName={country[0].country} />}
 
-        {/* {console.log(tradeImports)} */}
+        <section className="bg-gradient-to-b from-pri-12 to-white px-4 lg:mb-8 mb-4">
+          <div
+            className="max-w-screen-xl mx-auto
+            md:gap-8 
+            xl:gap-0 
+            py-6 px-2 
+          bg-pri-1 
+            rounded-2xl 
+          shadow-pri-12 
+            shadow-[0_30px_70px_-50px_rgba(0,0,0,0.3)]"
+          >
+            <div className="m-auto max-w-screen-xl px-4">
+              <h2
+                className="mb-4
+                text-xl min-[400px]:text-xl 
+                sm:text-2xl lg:text-3xl
+                font-bold leading-none tracking-tight 
+               text-stone-100 "
+              >
+                Where does the food come from?
+              </h2>
+              <p
+                className="
+                  text-gray-200 font-medium
+                  text-xs leading-5 tracking-tight
+                  sm:text-sm 
+                  md:leading-7
+                  lg:text-base
+                  lg:leading-8"
+              >
+                Analyze the trends that have shaped {country[0].country}'s
+                culinary landscape and discover the stories behind its food
+                imports. Whether you're here for research, policymaking, or
+                simply curiosity, this dashboard will provide you with valuable
+                insights into the world of food trade in {country[0].country}.
+                Let's embark on this data-driven exploration together.
+              </p>
+            </div>
+          </div>
+        </section>
 
-        <TradeMap data={tradeImports} />
+        {tradeImports.length && (
+          <TradeMap data={tradeImports} countryName={country[0].country} />
+        )}
 
-        {/* {importData.length && (
+        {importData.length && (
           <FoodImport data={importData} countryName={country[0].country} />
-        )} */}
+        )}
 
         {/* {exportData.length && (
           <FoodExport data={exportData} countryName={country[0].country} />
