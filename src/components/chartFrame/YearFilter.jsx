@@ -3,26 +3,31 @@
 import React, { useEffect, useState } from "react";
 import Treemap from "@/components/charts/Treemap";
 import { ComboboxDemo } from "@/components/ui/Combobox";
+import Loading from "../body/Loading";
 
 const YearFilter = ({ data, options }) => {
   const Year = options;
 
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(Year[0].value);
-  const [selectedData, setSelectedData] = useState(null);
+  const [selectedData, setSelectedData] = useState([]);
 
   useEffect(() => {
     // Use the data passed as props to filter and select the object with the chosen year.
     const selectedYear = parseInt(value);
     const selectedObject = data.find((item) => item.Year === selectedYear);
 
-    setSelectedData(selectedObject);
+    setSelectedData(selectedObject.Data);
   }, [value, data]);
 
   const handleSelectValue = (currentValue) => {
     setValue(currentValue);
     setOpen(false);
   };
+  console.log(selectedData);
+  const dataset = selectedData;
+
+  console.log("dataset", dataset);
 
   return (
     <div>
@@ -47,7 +52,11 @@ const YearFilter = ({ data, options }) => {
               />
             </div>
             {/* Display the selectedData in Treemap */}
-            {selectedData && <Treemap data={selectedData.Data} />}
+            {selectedData.length === 0 ? (
+              <Loading />
+            ) : (
+              <Treemap data={selectedData} />
+            )}
           </div>
         </div>
       </div>

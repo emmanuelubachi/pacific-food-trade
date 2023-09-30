@@ -55,34 +55,14 @@ const MapFilters = ({ data }) => {
   // };
 
   useEffect(() => {
-    //console.log(data);
     setCountries(data[0].Data);
   }, [data]);
-  console.log("countries:", countries);
 
   return (
     <div>
       <div className="m-auto max-w-screen-xl pt-4">
-        <div
-          className="gap-4 items-center
-              justify-center
-              mx-auto 
-              md:grid md:grid-cols-1
-              xl:gap-16"
-        >
-          <div className=" sm:h-full min-h-screen ">
-            {/* <div className="flex gap-2 justify-end">
-              <ComboboxDemo
-                options={Year}
-                defaultValue={Year[0].value}
-                defaultLabel={Year[0].label}
-                handleSelectValue={handleSelectValue}
-                setOpen={setOpen}
-                value={value}
-                open={open}
-              />
-            </div> */}
-            {/* Display the selectedData in Map */}
+        <div className="mx-auto items-center justify-center">
+          <div>
             {countries.length === 0 ? <Loading /> : <Map Data={countries} />}
           </div>
         </div>
