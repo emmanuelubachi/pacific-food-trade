@@ -4,11 +4,11 @@ import * as echarts from "echarts/core";
 import VintageTheme from "/public/vintage.project.json";
 import ReactECharts from "echarts-for-react";
 
-export default function DoubleBarchart({ data }) {
+export default function DoubleBarchart({ data, chartType, chartColor }) {
   //echarts.registerTheme("vintage", VintageTheme.theme);
 
-  echarts.registerTheme("barcolor", {
-    color: ["#cfaa23"], //"#cfaa23"  6189a8
+  echarts.registerTheme("doubleBarColor", {
+    color: ["#cfaa23"], //"#cfaa23"  #6189a8
   });
   const option = {
     tooltip: {
@@ -17,6 +17,7 @@ export default function DoubleBarchart({ data }) {
         type: "cross",
         label: {
           backgroundColor: "#283b56",
+          formatter: "{value} Quantity(Tonnes)",
         },
       },
     },
@@ -37,7 +38,10 @@ export default function DoubleBarchart({ data }) {
       {
         name: "Import",
         data: data.map((item) => item.Quantity),
-        type: "bar",
+        type: chartType,
+        areaStyle: {
+          opacity: 0.6,
+        },
       },
     ],
   };
@@ -46,7 +50,7 @@ export default function DoubleBarchart({ data }) {
       <ReactECharts
         option={option}
         className="sm:h-full min-h-[45vh]"
-        theme={"barcolor"}
+        theme={"doubleBarColor"}
         opts={{ renderer: "svg" }}
       />
     </>

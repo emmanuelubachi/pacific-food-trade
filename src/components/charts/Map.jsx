@@ -92,7 +92,7 @@ const Map = ({ Data }) => {
     },
     toolbox: {
       show: true,
-      //orient: 'vertical',
+      orient: "vertical",
       left: "left",
       top: "top",
       feature: {
