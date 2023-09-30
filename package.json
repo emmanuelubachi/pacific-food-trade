@@ -12,7 +12,8 @@
     "build": "next build",
     "start": "next start",
     "heroku-postbuild": "npm run build",
-    "lint": "next lint"
+    "lint": "next lint",
+    "serve": "npx serve@latest out"
   },
   "dependencies": {
     "@nextui-org/react": "^2.1.13",
@@ -38,6 +39,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-leaflet": "^4.2.1",
+    "sharp": "^0.32.6",
     "tailwind-merge": "^1.14.0",
     "tailwindcss": "3.3.3",
     "tailwindcss-animate": "^1.0.7"
