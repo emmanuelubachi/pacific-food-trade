@@ -8,47 +8,36 @@ const TopFoods = ({ data, countryName }) => {
 
   return (
     <section className="bg-gradient-to-b from-white via-orange-50 to-white">
-      <div className="m-auto max-w-screen-xl px-4 my-4">
+      <div className="m-auto max-w-screen-xl px-4 g:my-8 my-4">
         <h2
           className="mb-4
-            text-xl min-[400px]:text-2xl 
-            sm:text-3xl md:text-3xl lg:text-3xl xl:text-4xl
-            font-bold leading-none tracking-tight 
-            text-stone-600 "
+          text-xl min-[400px]:text-xl 
+          sm:text-2xl lg:text-3xl
+          font-bold leading-none tracking-tight 
+         text-stone-600"
         >
-          Where does the food come from?
+          Food Categories Overview
         </h2>
-
-        <div
-          className="gap-4 items-center
-              justify-center
-              mx-auto 
-              md:grid md:grid-cols-1
-              xl:gap-16"
+        <p
+          className="max-w-7xl
+            text-gray-600 font-medium 
+            text-xs leading-5 tracking-tight
+            sm:text-sm 
+            md:leading-7
+            lg:text-base
+            lg:leading-8"
         >
-          <div>
-            <p className="mb-3 text-lg text-stone-500 md:text-xl">
-              Deliver great service experiences fast - without the complexity of
-              traditional ITSM solutions.Accelerate critical development work
-              and deploy.
-            </p>
-            <p className="text-stone-500">
-              Track work across the enterprise through an open, collaborative
-              platform. Link issues across Jira and ingest data from other
-              software development tools, so your IT support and operations
-              teams have richer contextual information to rapidly respond to
-              requests, incidents, and changes.
-            </p>
-          </div>
-          <h5
-            className="mb-8 
-            text-lg sm:text-lg md:text-xl lg:text-2xl
-            font-bold leading-none tracking-tight 
-            text-stone-600 "
-          >
-            <span></span> {title}
-          </h5>
+          Delve into the types of food that {countryName} imports with this
+          treemap visualization. Each block represents a food category (HS2) and
+          its proportion in the overall imports.{" "}
+          <span className=" italic text-gray-600 font-light">
+            You can filter data by year to observe changes in food preferences
+            over the last 4 years. Discover the diversity of food imports and
+            their trends.
+          </span>
+        </p>
 
+        <div className="mx-auto items-center justify-center">
           <div className="sm:h-full min-h-screen ">
             <YearFilter title={title} data={data} options={YearFilterValues} />
           </div>

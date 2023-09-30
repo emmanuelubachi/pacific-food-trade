@@ -31,9 +31,10 @@ const Hero = ({ countryName }) => {
             lg:text-base
             lg:leading-8 lg:mb-8"
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
-            pretium quam id sem semper venenatis. Donec est leo, tincidunt ut
-            ipsum vitae, volutpat congue turpis.
+            Explore the intricate web of international food trade as it pertains
+            to this unique Pacific nation. Gain a deeper understanding of{" "}
+            {countryName}'s role in the global food market, from its trading
+            partners to the types of food it imports.
           </p>
         </div>
         <div className="my-0 sm:hidden flex flex-col items-end justify-center">
