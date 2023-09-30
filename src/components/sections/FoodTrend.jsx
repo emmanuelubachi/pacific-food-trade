@@ -2,13 +2,6 @@
 
 import React, { useEffect, useState } from "react";
 import DoubleBarchart from "../charts/DoubleBarchart";
-
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import Loading from "../body/Loading";
 
 const FoodTrend = ({ data, countryName }) => {
@@ -60,18 +53,6 @@ const FoodTrend = ({ data, countryName }) => {
             ) : (
               <DoubleBarchart data={dataset} />
             )}
-            {/* <div className="">
-              {data.map((items, index) => (
-                <Accordion key={index} type="single" collapsible>
-                  <AccordionItem value={index + 1}>
-                    <AccordionTrigger>{items.Food}</AccordionTrigger>
-                    <AccordionContent>
-                      <DoubleBarchart name={items.Food} data={items.Data} />
-                    </AccordionContent>
-                  </AccordionItem>
-                </Accordion>
-              ))}
-            </div> */}
           </div>
         </div>
       </div>

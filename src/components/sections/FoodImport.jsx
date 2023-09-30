@@ -28,8 +28,8 @@ const TopFoods = ({ data, countryName }) => {
             lg:leading-8"
         >
           Delve into the types of food that {countryName} imports with this
-          treemap visualization. Each block represents a food category
-          &lpar;HS2&rpar; and its proportion in the overall imports.{" "}
+          treemap visualization. Each block represents a food category (HS2) and
+          its proportion in the overall imports.{" "}
           <span className=" italic text-gray-600 font-light">
             You can filter data by year to observe changes in food preferences
             over the last 4 years. Discover the diversity of food imports and

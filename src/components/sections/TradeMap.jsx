@@ -28,7 +28,7 @@ const TradeMap = ({ data, countryName }) => {
             lg:leading-8 lg:mb-8"
           >
             Explore the countries supplying food to {countryName} and their
-            import quantities &lpar;tonnes&rpar; in 2018.{" "}
+            import quantities (tonnes) in 2018.{" "}
             <span className=" italic text-gray-600 font-light">
               Hover on a country to view specific import details and dive deeper
               into the dynamics of food trade.
