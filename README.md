@@ -1,4 +1,4 @@
-# Feeding the Pacific: Data-Driven Insights
+# Pacific Food Trade: Data-Driven Insights
 
 PACIFIC DATAVIZ CHALLENGE 2023
 
