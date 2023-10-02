@@ -94,8 +94,7 @@ const Navbar = () => {
                   hover:bg-gray-100 
                   md:hover:bg-transparent
                   md:hover:-translate-y- md:hover:scale-110 ease-in-out duration-200 hover:font-medium
-                  md:hover:text-primary-700 
-                
+                  md:hover:text-pri-1
                   md:p-0"
                   aria-current="page"
                 >
