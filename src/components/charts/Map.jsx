@@ -101,19 +101,16 @@ const Map = ({ Data }) => {
         saveAsImage: {},
       },
     },
-
     series: [
       {
         name: "Quantity",
         type: "map",
-        roam: false,
+        roam: true,
         map: "world",
-        boundingCoords: [
-          // [lng, lat] of left-top corner
-          [-180, 90],
-          // [lng, lat] of right-bottom corner
-          [180, -70],
-        ],
+        zoom: 1.3,
+        scaleLimit: {
+          min: 1,
+        },
         itemStyle: {
           color: "rgb(255,255,255)",
           areaColor: "rgba(211,211,211,1)",
