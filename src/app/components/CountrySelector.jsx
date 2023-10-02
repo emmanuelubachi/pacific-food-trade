@@ -38,7 +38,7 @@ export default function CountrySelector() {
 
   return (
     <>
-      {value ? <Spinner size="sm" color="default" /> : <></>}
+      {value ? <Spinner color="success" /> : <></>}
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild>
           <Button
