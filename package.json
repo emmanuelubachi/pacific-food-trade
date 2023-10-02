@@ -1,8 +1,8 @@
 {
-  "name": "feeding-the-pacific",
+  "name": "pacific-food-trade",
   "version": "0.1.0",
   "author": "Emmanuel Ubachi",
-  "homepage": "/feeding-the-pacific",
+  "homepage": "/pacific-food-trade",
   "private": true,
   "engines": {
     "node": "18.x"
