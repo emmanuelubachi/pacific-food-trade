@@ -5,7 +5,7 @@ import { Providers } from "./providers";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Feeding the Pacific: Data-Driven Insights",
+  title: "Pacific Food Trade: Data-Driven Insights",
   description: "PACIFIC DATAVIZ CHALLENGE 2023",
 };
 
