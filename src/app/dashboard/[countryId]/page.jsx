@@ -1,26 +1,40 @@
 import React from "react";
-import { fetchCountry_info, fetchData } from "@/lib/utils";
+// import { useRouter } from "next/navigation";
 
-import Hero from "@/components/sections/Hero";
-import TradeMap from "@/components/sections/TradeMap";
-import FoodTrend from "@/components/sections/FoodTrend";
-import FoodImport from "@/components/sections/FoodImport";
+import Country from "@/data/pacific_country.json";
+import FoodTradeImports from "@/data/food_imports_map.json";
+// import TopFoodExportData from "@/data/food_exports_by_year.json";
+import TopFoodImportData from "@/data/imports_by_commodity.json";
+import FoodTradeTrend from "@/data/imports_trend.json";
+import ProductTradeTrend from "@/data/imports_trend_by_product.json";
+
 import FoodProductTrend from "@/components/sections/FoodProductTrend";
+import FoodImport from "@/components/sections/FoodImport";
+// import FoodExport from "@/components/sections/FoodExport";
+import FoodTrend from "@/components/sections/FoodTrend";
+import Hero from "@/components/sections/Hero";
 
+// import Navigation from "@/components/sections/navigation";
+import TradeMap from "@/components/sections/TradeMap";
 
-export default async function CountryPage({ params }) {
-  const countryISO = params.countryId
+const CountryPage = ({ params }) => {
+  const countryISO = params.countryId;
 
-  const country_info = await fetchCountry_info(countryISO)
-  const country = country_info.country
-
-  const tradeImports = await fetchData(`http://localhost:3000/api/imports_map?iso=${countryISO}`)
-
-  const tradeTrendData = await fetchData(`http://localhost:3000/api/imports_trend?iso=${countryISO}`)
-
-  const importData = await fetchData(`http://localhost:3000/api/commodity_imports?iso=${countryISO}`)
-
-  const productTradeTrend = await fetchData(`http://localhost:3000/api/imports_trend_product?iso=${countryISO}`)
+  const country = Country.filter(
+    (countryinfo) => countryinfo.iso3 === countryISO
+  );
+  const tradeImports = FoodTradeImports.filter(
+    (trade) => trade.ImporterISO === countryISO
+  );
+  const importData = TopFoodImportData.filter(
+    (foodData) => foodData.ImporterISO === countryISO
+  );
+  const tradeTrendData = FoodTradeTrend.filter(
+    (trendData) => trendData.ImporterISO === countryISO
+  );
+  const productTradeTrend = ProductTradeTrend.filter(
+    (productData) => productData.ImporterISO === countryISO
+  );
 
   if (country.length === 0) {
     // Handle the case where no matching data is found, e.g., show an error message.
@@ -34,7 +48,7 @@ export default async function CountryPage({ params }) {
       <main>
         {country.length && <Hero countryName={country[0].country} />}
 
-         <section className="bg-gradient-to-b from-pri-12 to-white px-4 lg:mb-8 mb-4">
+        <section className="bg-gradient-to-b from-pri-12 to-white px-4 lg:mb-8 mb-4">
           <div
             className="max-w-screen-xl mx-auto
             md:gap-8 
@@ -93,7 +107,15 @@ export default async function CountryPage({ params }) {
             countryName={country[0].country}
           />
         )}
+
+        {/* {exportData.length && (
+          <FoodExport data={exportData} countryName={country[0].country} />
+        )} */}
+
+        {/* <Navigation /> */}
       </main>
     );
   }
 };
+
+export default CountryPage;
